@@ -21,8 +21,4 @@ package-lock.json
 .Spotlight-V100
 .Trashes
 
-#Linux
-.*
-!.gitignore
-*~
 
