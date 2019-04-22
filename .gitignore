@@ -1,8 +1,28 @@
+# IDE
 .idea/
+
+# npm
 dist/
-.node_modules/
+node_modules/
+package-lock.json
 
 # Firebase cache
 .firebase/
 
-package-lock.json
+
+# OSX
+.DS_Store
+.AppleDouble
+.LSOverride
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+#Linux
+.*
+!.gitignore
+*~
+
