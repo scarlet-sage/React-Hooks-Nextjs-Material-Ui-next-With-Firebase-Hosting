@@ -22,12 +22,20 @@ export default function About() {
   return (
     <Container maxWidth="sm">
       <Box my={4}>
+
         <Typography variant="h4" component="h1" gutterBottom>
           Next.js v4-alpha example
         </Typography>
-        <Link href="/">Go to the main page</Link>
+
+        <Typography variant="body1" component="h6" gutterBottom>
+          <Link href="/">Go to the main page</Link>
+        </Typography>
+
+
         <ProTip/>
+
         <MadeWithLove/>
+
       </Box>
     </Container>
   );

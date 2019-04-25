@@ -1,4 +1,11 @@
+// https://github.com/zeit/next.js/#custom-app
+/**
+ * React
+ */
 import React from 'react';
+/**
+ * Next
+ */
 import App, {Container} from 'next/app';
 
 /**
@@ -14,11 +21,12 @@ import theme from '../config/theme';
 import {CounterProvider} from '../contexts/counter';
 
 /**
- *
+ * MuiApp
+ * ここでContextのProvider設定しておくと良い
  */
 class MuiApp extends App {
   componentDidMount() {
-    // Remove the server-side injected CSS.
+    // サーバーサイドに挿入されたCSSが存在すればを削除します
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles && jssStyles.parentNode) {
       jssStyles.parentNode.removeChild(jssStyles);
@@ -31,6 +39,7 @@ class MuiApp extends App {
       <Container>
         <ThemeProvider theme={theme}>
           <CounterProvider>
+            {/* Material-UIでのベースライン、ないとデザインが崩れる */}
             <CssBaseline/>
             <Component {...pageProps} />
           </CounterProvider>

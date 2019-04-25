@@ -10,6 +10,7 @@ import ProTip from '../components/ProTip';
 import Link from '../components/Link';
 
 import {CounterContext} from "../contexts/counter"
+import {Grid} from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -34,23 +35,44 @@ export default function Counter() {
         <Typography variant="h4" component="h1" gutterBottom>
           Next.js v4-alpha example
         </Typography>
+        <Grid container justify="center" alignItems="center">
+          <Grid item>
+            <Typography variant="h4" component="h1" gutterBottom>
+              Count:{count}
+            </Typography>
+          </Grid>
+        </Grid>
+        <Grid container justify="center" alignItems="center">
 
-        <Typography variant="h4" component="h1" gutterBottom color="secondary">
-          count:{count}
-        </Typography>
+          <Grid item>
+            <Button variant="outlined"
+                    color="primary"
+                    className={classes.button}
+                    onClick={() => increment()}>Increment</Button>
 
-        <Button className={classes.button} onClick={() => increment()}>increment</Button>
+          </Grid>
+          <Grid item>
+            <Button variant="outlined"
+                    color="secondary"
+                    className={classes.button}
+                    onClick={() => decrement()}>Decrement</Button>
+          </Grid>
+          <Grid item>
 
-        <Button className={classes.button} onClick={() => decrement()}>decrement</Button>
+            <Button variant="outlined"
+                    color="default"
+                    className={classes.button}
+                    onClick={() => reset()}>Reset</Button>
 
-        <Button className={classes.button} onClick={() => reset()}>reset</Button>
+          </Grid>
+        </Grid>
 
-
-        <Typography variant="h6" component="h6" gutterBottom>
+        <Typography variant="body1" component="h6" gutterBottom>
           <Link href="/">Go to the main page</Link>
         </Typography>
 
         <ProTip/>
+
       </Box>
     </Container>
   );

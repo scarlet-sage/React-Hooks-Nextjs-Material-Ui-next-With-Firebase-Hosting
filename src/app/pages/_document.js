@@ -1,5 +1,15 @@
+// https://github.com/zeit/next.js/#custom-document
+/**
+ * React
+ */
 import React from 'react';
+/**
+ * Next
+ */
 import Document, {Head, Main, NextScript} from 'next/document';
+/**
+ * Material-UI
+ */
 import {ServerStyleSheets} from '@material-ui/styles';
 import flush from 'styled-jsx/server';
 import theme from '../config/theme';
@@ -30,7 +40,6 @@ class MuiDocument extends Document {
 }
 
 /**
- *
  * @param ctx
  * @returns {Promise<*>}
  */

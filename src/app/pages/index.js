@@ -26,16 +26,17 @@ export default function Index() {
           Next.js v4-alpha example
         </Typography>
 
-        <Link href="/about" color="secondary">
-          Go to the about page
-        </Link>
+        <Typography variant="body1" component="h6" gutterBottom>
+          <Link href="/about" color="secondary">
+            Go to the about page
+          </Link>
+        </Typography>
 
-        <br/>
-        <br/>
-
-        <Link href="/counter" color="secondary">
-          Go to the counter page
-        </Link>
+        <Typography variant="body1" component="h6" gutterBottom>
+          <Link href="/counter" color="secondary">
+            Go to the counter page
+          </Link>
+        </Typography>
 
         <ProTip/>
 

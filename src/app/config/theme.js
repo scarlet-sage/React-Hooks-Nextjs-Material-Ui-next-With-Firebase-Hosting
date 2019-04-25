@@ -1,6 +1,6 @@
 import {createMuiTheme} from '@material-ui/core/styles';
-import orange from '@material-ui/core/colors/orange';
-import green from '@material-ui/core/colors/green';
+import blue from '@material-ui/core/colors/blue';
+import pink from '@material-ui/core/colors/pink';
 
 /**
  * A theme with custom primary and secondary color.
@@ -10,14 +10,14 @@ import green from '@material-ui/core/colors/green';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      light: orange[300],
-      main: orange[500],
-      dark: orange[700],
+      light: blue[300],
+      main: blue[500],
+      dark: blue[700],
     },
     secondary: {
-      light: green[300],
-      main: green[500],
-      dark: green[700],
+      light: pink[300],
+      main: pink[500],
+      dark: pink[700],
     },
   },
   typography: {
