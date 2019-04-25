@@ -2,6 +2,8 @@
 
 React HooksとMaterial-ui v4で作成したアプリをNext.jsで動かして、FirebaseでSSR(サーバーサイドレンダリング)をする。
 
+[next.js/examples/with-firebase-hosting at canary · zeit/next.js · GitHub](https://github.com/zeit/next.js/tree/canary/examples/with-firebase-hosting)と[material-ui/examples/nextjs-next at next · mui-org/material-ui · GitHub](https://github.com/mui-org/material-ui/tree/next/examples/nextjs-next)を組み合わせたものです。
+
 
 ## How to use
 
@@ -13,7 +15,6 @@ git clone https://github.com/scarlet-sage/React-Hooks-Nextjs-Material-Ui-next-Wi
 * Firebaseのプロジェクトを作成してください。 [firebase web console](https://console.firebase.google.com/)
 * WebコンソールのURLからプロジェクトIDを取得します。 `https://console.firebase.google.com/project/<projectId>`
 * `.firebaserc` デフォルトのプロジェクトIDを取得したプロジェクトIDで上書きしてください。
-* もしアプリ側でfirebaseを利用する場合には`src/app/next.config.js`の`firebase`に設定から取得したAPI KEYなどを入れてください。
 * Firebase CLIツールでログインしてください。 `firebase login`
 
 ### Install Project
@@ -45,20 +46,17 @@ npm run deploy
 npm run clean
 ```
 
-
 ## 作成した背景
 目的は、Firebase Hostingのリライトルールを使用してFirebase Cloud FunctionsでNext.jsアプリをホストすることです。
 これにより、このアプリはFirebase HostingのURLから配信されます。
 個々の `page`バンドルはそれぞれ、最初のサーバーサイドレンダリングを実行するCloud Functionへの新しい呼び出しで実行されます。
 
-元ネタは[next.js/examples/with-firebase-hosting at canary · zeit/next.js · GitHub](https://github.com/zeit/next.js/tree/canary/examples/with-firebase-hosting)と[material-ui/examples/nextjs-next at next · mui-org/material-ui · GitHub](https://github.com/mui-org/material-ui/tree/next/examples/nextjs-next)を組み合わせたものです。
-
 ## わからん殺しの部分
 
-* Firebase Hostingでは`public/`フォルダが空だとエラー起きるので入れてます。
-* `firebase.json`のリライトルールでリクエストは全てCloud Functionに投げてます。
-* `package.json`に記述してある、`"engines": {"node": "8"}`はFirebase Cloud FunctionsをNode8で動かすのに必要です。これは`src/functions/.babelrc`の設定で、babelはNode6よりコンパクトでモダンなコードを出力します。
+* Firebase Hostingでは`public/`フォルダが空だとエラー起きるので、`placeholder.html`を入れてあります。
 * 静的ファイルを扱う場合はNext.jsでは`src/app/static/`フォルダにおく必要があるが、Firebase Hostingでは`public/`ディレクトリ見てるので、ビルド前に`src/app/static/`から`public/`コピーしてます。
+* `firebase.json`のリライトルールで,`public/`フォルダに該当するファイルが存在しない場合、リクエストは全てCloud Functionで処理されます。
+* `package.json`に記述してある、`"engines": {"node": "8"}`はFirebase Cloud FunctionsをNode8で動かすのに必要です。これは`src/functions/.babelrc`の設定で、babelはNode6よりコンパクトでモダンなコードを出力します。
 
 ### カスタム
 
@@ -81,7 +79,7 @@ Next Appのコンパイル用に `.babelrc`をカスタマイズしたい場合�
 
 next.jsは依存関係として `@babel/runtime`を持っていますが、このプロジェクトには依存関係として直接インストールする必要があります。
 インストールしてもエラーが出るようなら`node_modules`ディレクトリを削除してから`npm install`を再度実行してください。
-それでもエラーが出る場合はnodeが壊れてる可能性もあります、私が作成中に一度壊れてました。
+それでもエラーが出る場合はnode自体が壊れてる可能性もあります、私が作成中に一度壊れてました。
 
 ## 参考記事
 [https://github.com/zeit/next.js/tree/canary/examples/with-firebase-hosting](https://github.com/zeit/next.js/tree/canary/examples/with-firebase-hosting) 

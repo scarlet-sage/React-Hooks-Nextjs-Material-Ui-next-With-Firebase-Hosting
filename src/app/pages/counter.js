@@ -2,15 +2,15 @@ import React, {useContext} from 'react';
 
 import {makeStyles} from '@material-ui/styles';
 import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
+import Grid from "@material-ui/core/Grid";
 import Box from '@material-ui/core/Box';
+import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
 import ProTip from '../components/ProTip';
 import Link from '../components/Link';
 
 import {CounterContext} from "../contexts/counter"
-import {Grid} from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   button: {
@@ -26,6 +26,7 @@ export default function Counter() {
     increment,
     decrement,
   } = useContext(CounterContext);
+
   const classes = useStyles();
 
   return (
@@ -35,6 +36,7 @@ export default function Counter() {
         <Typography variant="h4" component="h1" gutterBottom>
           Next.js v4-alpha example
         </Typography>
+
         <Grid container justify="center" alignItems="center">
           <Grid item>
             <Typography variant="h4" component="h1" gutterBottom>
@@ -42,6 +44,7 @@ export default function Counter() {
             </Typography>
           </Grid>
         </Grid>
+
         <Grid container justify="center" alignItems="center">
 
           <Grid item>
